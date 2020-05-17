@@ -6,6 +6,7 @@ import { Container } from 'semantic-ui-react'
 
 class PokemonPage extends React.Component {
   render() {
+    
     return (
       <Container>
         <h1>Pokemon Searcher</h1>

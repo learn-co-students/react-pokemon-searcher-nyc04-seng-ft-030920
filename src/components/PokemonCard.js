@@ -3,6 +3,8 @@ import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
   render() {
+    let { name, sprites, stats } = this.props.pokemons
+
     return (
       <Card>
         <div>
@@ -10,7 +12,7 @@ class PokemonCard extends React.Component {
             <img alt="oh no!" />
           </div>
           <div className="content">
-            <div className="header">POKEMON NAME HERE</div>
+          <div className="header">{name}</div>
           </div>
           <div className="extra content">
             <span>
