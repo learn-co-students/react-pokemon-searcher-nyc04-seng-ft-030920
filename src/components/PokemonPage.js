@@ -5,8 +5,26 @@ import Search from './Search'
 import { Container } from 'semantic-ui-react'
 
 class PokemonPage extends React.Component {
+  state = {
+    pokemonList: []
+    // searchTerm: ''
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/pokemon")
+    .then(r => r.json())
+    .then((pokemonArr) => {
+      this.setState({
+        pokemonList: pokemonArr
+      })
+    })
+  }
+
   render() {
-    
+    // let desiredPokemon = this.state.pokemonList.filter(singlePokemon =>
+    //   singlePokemon.name.includes(this.state.searchTerm)
+    // )
+
     return (
       <Container>
         <h1>Pokemon Searcher</h1>
@@ -15,7 +33,7 @@ class PokemonPage extends React.Component {
         <br />
         <Search onChange={() => console.log('🤔')} />
         <br />
-        <PokemonCollection />
+        <PokemonCollection pokemon = { this.state.pokemonList } />
       </Container>
     )
   }

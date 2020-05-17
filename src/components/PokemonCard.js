@@ -3,7 +3,9 @@ import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
   render() {
-    let { name, sprites, stats } = this.props.pokemons
+    
+    let { name, sprites, stats } = this.props.pokemon
+    // let hp = stats.find(stat => stat.name === "hp").value
 
     return (
       <Card>
