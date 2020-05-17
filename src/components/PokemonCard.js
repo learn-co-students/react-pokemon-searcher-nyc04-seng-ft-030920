@@ -5,13 +5,14 @@ class PokemonCard extends React.Component {
   render() {
     
     let { name, sprites, stats } = this.props.pokemon
-    // let hp = stats.find(stat => stat.name === "hp").value
+    let hp = stats.find(stat => stat.name === "hp").value
+    let frontImage = sprites["front"]
 
     return (
       <Card>
         <div>
           <div className="image">
-            <img alt="oh no!" />
+            <img src={frontImage} alt="oh no!" />
           </div>
           <div className="content">
           <div className="header">{name}</div>
@@ -19,7 +20,7 @@ class PokemonCard extends React.Component {
           <div className="extra content">
             <span>
               <i className="icon heartbeat red" />
-              POKEMON HP HERE hp
+              {hp}
             </span>
           </div>
         </div>
