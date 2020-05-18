@@ -2,20 +2,34 @@ import React from 'react'
 import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
+
+  state = {
+    isClicked: true
+  }
+
+  handleFlip = () => {
+    this.setState((prevState) => ({ isClicked: !prevState.isClicked
+    }))
+  }
+
   render() {
+
+    let {name, sprites, stats} = this.props.pokemon
+    let hp = stats.find((stat) => stat.name === 'hp').value
+
     return (
       <Card>
         <div>
           <div className="image">
-            <img alt="oh no!" />
+            {this.state.isClicked ? <img src={sprites.front} alt="front pic" onClick={this.handleFlip}/> : <img src={sprites.back} alt="back pic" onClick={this.handleFlip}/>}
           </div>
           <div className="content">
-            <div className="header">POKEMON NAME HERE</div>
+            <div className="header">{name}</div>
           </div>
           <div className="extra content">
             <span>
               <i className="icon heartbeat red" />
-              POKEMON HP HERE hp
+              {hp} hp
             </span>
           </div>
         </div>
