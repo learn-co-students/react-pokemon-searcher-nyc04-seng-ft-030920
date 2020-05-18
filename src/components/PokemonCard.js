@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react'
 
 class PokemonCard extends React.Component {
   state = {
-    toggleImage: false
+    toggleImage: true
   }
 
   handleToggleImage = (event) => {
@@ -25,8 +25,7 @@ class PokemonCard extends React.Component {
       <Card>
         <div>
           <div className="image">
-            <img src={frontImage} alt={name} onClick={this.handleToggleImage}/>
-            { this.state.toggleImage ? <img src={frontImage}/> : <img src={backImage}/> }
+            { this.state.toggleImage ? <img src={frontImage} onClick={this.handleToggleImage}/> : <img src={backImage} onClick={this.handleToggleImage}/> }
           </div>
           <div className="content">
           <div className="header">{name}</div>
