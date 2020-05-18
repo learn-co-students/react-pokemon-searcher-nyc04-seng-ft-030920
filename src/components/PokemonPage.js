@@ -25,17 +25,20 @@ class PokemonPage extends React.Component {
   }
 
   submitFetch = (newPokeObj) => {
+    console.log(newPokeObj)
     fetch(`http://localhost:3000/pokemon`, {
       method: 'POST',
-      headers: {"Content-Type": 'applicatin/json'},
+      headers: {"Content-Type": 'application/json'},
       body: JSON.stringify({
         name: newPokeObj.name,
         stats: [{value: newPokeObj.hp, name: 'hp'}],
         sprites: {front: newPokeObj.frontUrl, back: newPokeObj.backUrl}
       })
-    }).then(r => r.json()).then((newPokemon) => {
+    })
+    .then(r => r.json())
+    .then((newPokemon) => {
       let newPokeList = [...this.state.pokemonList, newPokemon]
-      this.setState({pokemonList: [newPokeList]})
+      this.setState({pokemonList: newPokeList})
     })
   }
 

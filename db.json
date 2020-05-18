@@ -7328,6 +7328,17 @@
       }
     },
     {
+      "name": "bulbasaur",
+      "stats": [
+        {
+          "value": "15",
+          "name": "hp"
+        }
+      ],
+      "sprites": {
+        "front": "https://vignette.wikia.nocookie.net/pokemon/images/1/19/Ash_Bulbasaur.png/revision/latest?cb=20170914224503",
+        "back": "https://art.pixilart.com/2247840569a7933.png"
+      },
       "id": 207
     }
   ]

@@ -13,7 +13,6 @@ class PokemonCard extends React.Component {
   }
 
   render() {
-
     let {name, sprites, stats} = this.props.pokemon
     let hp = stats.find((stat) => stat.name === 'hp').value
 
