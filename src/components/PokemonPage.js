@@ -28,6 +28,12 @@ class PokemonPage extends React.Component {
     })
   }
 
+  addPokemon = (pokemon) => {
+    this.setState({
+      pokemonList: [...this.state.pokemonList, pokemon]
+    })
+  }
+
   render() {
     let desiredPokemon = this.state.pokemonList.filter(singlePokemon =>
       singlePokemon.name.includes(this.state.searchTerm)
@@ -37,7 +43,7 @@ class PokemonPage extends React.Component {
       <Container>
         <h1>Pokemon Searcher</h1>
         <br />
-        <PokemonForm />
+        <PokemonForm addPokemon = {this.addPokemon} />
         <br />
         <Search onChange={this.handleSearch} />
         <br />
