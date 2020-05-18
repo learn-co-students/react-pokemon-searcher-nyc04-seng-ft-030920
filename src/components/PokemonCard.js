@@ -25,7 +25,7 @@ class PokemonCard extends React.Component {
       <Card>
         <div>
           <div className="image">
-            { this.state.toggleImage ? <img src={frontImage} onClick={this.handleToggleImage}/> : <img src={backImage} onClick={this.handleToggleImage}/> }
+            { this.state.toggleImage ? <img src={frontImage} alt={name} onClick={this.handleToggleImage}/> : <img src={backImage} alt={name} onClick={this.handleToggleImage}/> }
           </div>
           <div className="content">
           <div className="header">{name}</div>

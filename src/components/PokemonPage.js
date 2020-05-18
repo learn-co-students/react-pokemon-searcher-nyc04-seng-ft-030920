@@ -6,8 +6,8 @@ import { Container } from 'semantic-ui-react'
 
 class PokemonPage extends React.Component {
   state = {
-    pokemonList: []
-    // searchTerm: ''
+    pokemonList: [],
+    searchTerm: ''
   }
 
   componentDidMount() {
@@ -20,10 +20,18 @@ class PokemonPage extends React.Component {
     })
   }
 
+  handleSearch = (event) => {
+    console.log(event.target.value)
+
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
+
   render() {
-    // let desiredPokemon = this.state.pokemonList.filter(singlePokemon =>
-    //   singlePokemon.name.includes(this.state.searchTerm)
-    // )
+    let desiredPokemon = this.state.pokemonList.filter(singlePokemon =>
+      singlePokemon.name.includes(this.state.searchTerm)
+    )
 
     return (
       <Container>
@@ -31,9 +39,9 @@ class PokemonPage extends React.Component {
         <br />
         <PokemonForm />
         <br />
-        <Search onChange={() => console.log('🤔')} />
+        <Search onChange={this.handleSearch} />
         <br />
-        <PokemonCollection pokemon = { this.state.pokemonList } />
+        <PokemonCollection pokemon = { desiredPokemon } />
       </Container>
     )
   }
